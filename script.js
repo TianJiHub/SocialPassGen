@@ -48,7 +48,8 @@ class SocialPassGen {
             partnerSolarBirthDate: document.getElementById('partnerSolarBirthDate').value,
             partnerLunarBirthDate: document.getElementById('partnerLunarBirthDate').value,
             otherInfo: document.getElementById('otherInfo').value.trim(),
-            passwordLength: document.getElementById('passwordLength').value.trim(),
+            minLength: document.getElementById('minLength').value.trim(),
+            maxLength: document.getElementById('maxLength').value.trim(),
             caseOption: caseOption
         };
     }
@@ -677,32 +678,39 @@ class SocialPassGen {
         const passwords = this.generatePasswords(infoPieces, info);
         
         // 处理密码长度限制
-        let minLength = 4;
-        let maxLength = 30;
+        let minLength = 1;  // 默认最小长度为1
+        let maxLength = 30; // 默认最大长度为30
         
-        if (info.passwordLength) {
-            const lengthSetting = info.passwordLength.trim();
-            
-            // 处理范围格式 (如: 8-16)
-            if (lengthSetting.includes('-')) {
-                const parts = lengthSetting.split('-');
-                if (parts.length === 2) {
-                    const min = parseInt(parts[0].trim());
-                    const max = parseInt(parts[1].trim());
-                    if (!isNaN(min) && !isNaN(max) && min <= max) {
-                        minLength = min;
-                        maxLength = max;
-                    }
-                }
-            } 
-            // 处理固定长度格式 (如: 12)
-            else {
-                const length = parseInt(lengthSetting);
-                if (!isNaN(length)) {
-                    minLength = length;
-                    maxLength = length;
-                }
+        // 处理最小长度
+        if (info.minLength) {
+            const min = parseInt(info.minLength.trim());
+            if (!isNaN(min) && min >= 1) {
+                minLength = min;
             }
+        }
+        
+        // 处理最大长度
+        if (info.maxLength) {
+            const max = parseInt(info.maxLength.trim());
+            if (!isNaN(max) && max >= 1) {
+                maxLength = max;
+            }
+        }
+        
+        // 如果只输入了最小长度，没有输入最大长度，则最大长度等于最小长度
+        if (info.minLength && !info.maxLength) {
+            maxLength = minLength;
+        }
+        // 如果只输入了最大长度，没有输入最小长度，则最小长度为1
+        else if (!info.minLength && info.maxLength) {
+            minLength = 1;
+        }
+        // 如果都输入了，则使用输入的值
+        // 如果都没输入，则使用默认值(1-30)
+        
+        // 确保最小长度不大于最大长度
+        if (minLength > maxLength) {
+            [minLength, maxLength] = [maxLength, minLength]; // 交换值
         }
         
         // 过滤符合长度要求的密码
