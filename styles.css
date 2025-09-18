@@ -1,0 +1,275 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+h1 {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    font-size: 1.8em;
+}
+
+form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* 同行显示的表单布局 */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* 三列布局的特殊处理 */
+.form-row.three-columns .form-group {
+    flex: 1;
+}
+
+/* 两列布局的特殊处理 */
+.form-row.two-columns .form-group {
+    flex: 1;
+}
+
+/* 生日字段的特殊处理 */
+.form-row .form-group input[type="date"] {
+    padding: 10px;
+}
+
+/* 组织名和公司名字段的特殊处理 */
+.form-row .form-group input[type="text"] {
+    width: 100%;
+}
+
+/* 为较长的输入框增加样式 */
+.form-group textarea {
+    height: 60px;
+}
+
+/* 滑动按钮样式 */
+.toggle-group {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 25px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.toggle-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.toggle-group input[type="radio"] {
+    display: none;
+}
+
+.toggle-group input[type="radio"]:checked + .toggle-btn {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#result {
+    padding: 30px;
+    border-top: 1px solid #eee;
+}
+
+#result.hidden {
+    display: none;
+}
+
+.export-options {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.export-row {
+    margin-bottom: 15px;
+}
+
+.export-row:last-child {
+    margin-bottom: 0;
+}
+
+.export-btn {
+    width: 40%;
+    margin: 0 5%;
+    padding: 12px 20px;
+    font-size: 14px;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.export-options button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.password-count {
+    text-align: center;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.password-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.password-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.password-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    word-break: break-all;
+}
+
+.password-list li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+    }
+    
+    form, #result {
+        padding: 20px;
+    }
+    
+    .export-btn {
+        display: block;
+        width: 90%;
+        margin: 10px 5%;
+    }
+    
+    /* 在小屏幕上，同行显示的表单改为垂直显示 */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-row .form-group {
+        margin-bottom: 20px;
+    }
+}
+
+/* 添加加载动画 */
+.generating {
+    position: relative;
+}
+
+.generating::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会工程学密码生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>社会工程学密码生成器</h1>
+        <form id="infoForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="chineseName">中文姓名（拼音）:</label>
+                    <input type="text" id="chineseName" placeholder="例如：Zhang San">
+                </div>
+                
+                <div class="form-group">
+                    <label for="englishName">英文姓名:</label>
+                    <input type="text" id="englishName" placeholder="例如：Zhang San">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="solarBirthDate">农历生日:</label>
+                    <input type="date" id="solarBirthDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lunarBirthDate">阴历生日:</label>
+                    <input type="date" id="lunarBirthDate">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="idCard">身份证号:</label>
+                <input type="text" id="idCard" placeholder="例如：110101199001011234">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">手机号:</label>
+                <input type="text" id="phone" placeholder="例如：13812345678">
+            </div>
+            
+            <div class="form-group">
+                <label for="qq">QQ号:</label>
+                <input type="text" id="qq" placeholder="例如：123456789">
+            </div>
+            
+            <div class="form-group">
+                <label for="wechat">微信号:</label>
+                <input type="text" id="wechat" placeholder="例如：wechat_id">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">邮箱:</label>
+                <input type="email" id="email" placeholder="例如：example@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="commonPhrases">常用短语（英文/中文拼音，多个用英文逗号分开）:</label>
+                <textarea id="commonPhrases" placeholder="例如：iloveyou,woaini,zhangsanlove"></textarea>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nicknames">常用网络昵称（中文拼音/英文）:</label>
+                    <input type="text" id="nicknames" placeholder="例如：zhangsan,love_u">
+                </div>
+                
+                <div class="form-group">
+                    <label for="accounts">对应的网络帐号（多个用英文逗号分开）:</label>
+                    <textarea id="accounts" placeholder="例如：zhangsan123,love_u_2020"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="organizationChinese">组织名（中文拼音）:</label>
+                    <input type="text" id="organizationChinese" placeholder="例如：gongsi">
+                </div>
+                
+                <div class="form-group">
+                    <label for="organizationEnglish">组织名（英文）:</label>
+                    <input type="text" id="organizationEnglish" placeholder="例如：company">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="companyChinese">公司名（中文拼音）:</label>
+                    <input type="text" id="companyChinese" placeholder="例如：kejigongsi">
+                </div>
+                
+                <div class="form-group">
+                    <label for="companyEnglish">公司名（英文）:</label>
+                    <input type="text" id="companyEnglish" placeholder="例如：ABC Corp">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="employeeId">工号:</label>
+                <input type="text" id="employeeId" placeholder="例如：001,EMP001">
+            </div>
+            
+            <div class="form-group">
+                <label for="sequences">常用序列（纯数字序列、纯英文序列、数字和英文混用的序列，多个用英文逗号分开）:</label>
+                <textarea id="sequences" placeholder="例如：123456,abcdef,abc123"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="separators">连接符（中文连接符、英文连接符，多个用英文逗号分开）:</label>
+                <input type="text" id="separators" placeholder="例如：-,_,.,—">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="partnerChineseName">伴侣中文拼音姓名:</label>
+                    <input type="text" id="partnerChineseName" placeholder="例如：lisi">
+                </div>
+                
+                <div class="form-group">
+                    <label for="partnerEnglishName">伴侣英文姓名:</label>
+                    <input type="text" id="partnerEnglishName" placeholder="例如：Li Si">
+                </div>
+                
+                <div class="form-group">
+                    <label for="partnerSolarBirthDate">伴侣农历生日:</label>
+                    <input type="date" id="partnerSolarBirthDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="partnerLunarBirthDate">伴侣阴历生日:</label>
+                    <input type="date" id="partnerLunarBirthDate">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="otherInfo">其他信息（逗号分隔，中文请使用拼音）:</label>
+                <textarea id="otherInfo" placeholder="例如：chongwu,xuexiao,chengshi"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="passwordLength">密码长度限制:</label>
+                <input type="text" id="passwordLength" placeholder="例如：8-16 或 12">
+            </div>
+            
+            <div class="form-group">
+                <label>大小写选项:</label>
+                <div class="toggle-group">
+                    <input type="radio" id="capitalizeFirst" name="caseOption" value="capitalize" checked>
+                    <label for="capitalizeFirst" class="toggle-btn">首字母大写</label>
+                    
+                    <input type="radio" id="uppercaseAll" name="caseOption" value="upper">
+                    <label for="uppercaseAll" class="toggle-btn">全大写</label>
+                    
+                    <input type="radio" id="lowercaseAll" name="caseOption" value="lower">
+                    <label for="lowercaseAll" class="toggle-btn">全小写</label>
+                </div>
+            </div>
+            
+            <button type="button" id="generateBtn">生成密码本</button>
+        </form>
+        
+        <div id="result" class="hidden">
+            <h2>生成的密码本</h2>
+            <div class="export-options">
+                <div class="export-row">
+                    <button id="exportTxt" class="export-btn">导出为TXT</button>
+                    <button id="exportCsv" class="export-btn">导出为CSV</button>
+                </div>
+                <div class="export-row">
+                    <button id="exportJson" class="export-btn">导出为JSON</button>
+                    <button id="exportExcel" class="export-btn">导出为Excel</button>
+                </div>
+            </div>
+            <div class="password-count">
+                <p>共生成 <span id="passwordCount">0</span> 个密码</p>
+            </div>
+            <div class="password-list">
+                <ul id="passwordList"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
