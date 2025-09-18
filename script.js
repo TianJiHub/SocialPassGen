@@ -68,6 +68,8 @@ class SocialPassGen {
                     pieces.add(name.toUpperCase());
                 } else if (info.caseOption === 'capitalize') {
                     pieces.add(name.charAt(0).toUpperCase() + name.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(name);
                 } else {
                     // 默认添加所有格式
                     pieces.add(name.toLowerCase());
@@ -90,6 +92,8 @@ class SocialPassGen {
                         pieces.add(trimmed.toUpperCase());
                     } else if (info.caseOption === 'capitalize') {
                         pieces.add(trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase());
+                    } else if (info.caseOption === 'original') {
+                        pieces.add(trimmed);
                     } else {
                         // 默认添加所有格式
                         pieces.add(trimmed.toLowerCase());
@@ -107,18 +111,22 @@ class SocialPassGen {
                 const dotted = trimmedNames.join('.');
                 
                 // 根据用户选择添加不同格式
-                if (info.lowercaseAll) {
+                if (info.caseOption === 'lower') {
                     pieces.add(combined.toLowerCase());
                     pieces.add(underscored.toLowerCase());
                     pieces.add(dotted.toLowerCase());
-                } else if (info.uppercaseAll) {
+                } else if (info.caseOption === 'upper') {
                     pieces.add(combined.toUpperCase());
                     pieces.add(underscored.toUpperCase());
                     pieces.add(dotted.toUpperCase());
-                } else if (info.capitalizeFirst) {
+                } else if (info.caseOption === 'capitalize') {
                     pieces.add(combined.charAt(0).toUpperCase() + combined.slice(1).toLowerCase());
                     pieces.add(underscored.charAt(0).toUpperCase() + underscored.slice(1).toLowerCase());
                     pieces.add(dotted.charAt(0).toUpperCase() + dotted.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(combined);
+                    pieces.add(underscored);
+                    pieces.add(dotted);
                 } else {
                     // 默认添加所有格式
                     pieces.add(combined.toLowerCase());
@@ -168,6 +176,8 @@ class SocialPassGen {
                         pieces.add(trimmed.toUpperCase());
                     } else if (info.caseOption === 'capitalize') {
                         pieces.add(trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase());
+                    } else if (info.caseOption === 'original') {
+                        pieces.add(trimmed);
                     } else {
                         // 默认添加所有格式
                         pieces.add(trimmed.toLowerCase());
@@ -185,12 +195,14 @@ class SocialPassGen {
                 const trimmed = nickname.trim();
                 if (trimmed) {
                     // 根据用户选择添加不同格式
-                    if (info.lowercaseAll) {
+                    if (info.caseOption === 'lower') {
                         pieces.add(trimmed.toLowerCase());
-                    } else if (info.uppercaseAll) {
+                    } else if (info.caseOption === 'upper') {
                         pieces.add(trimmed.toUpperCase());
-                    } else if (info.capitalizeFirst) {
+                    } else if (info.caseOption === 'capitalize') {
                         pieces.add(trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase());
+                    } else if (info.caseOption === 'original') {
+                        pieces.add(trimmed);
                     } else {
                         // 默认添加所有格式
                         pieces.add(trimmed.toLowerCase());
@@ -217,12 +229,14 @@ class SocialPassGen {
             const org = info.organizationChinese.trim();
             if (org) {
                 // 根据用户选择添加不同格式
-                if (info.lowercaseAll) {
+                if (info.caseOption === 'lower') {
                     pieces.add(org.toLowerCase());
-                } else if (info.uppercaseAll) {
+                } else if (info.caseOption === 'upper') {
                     pieces.add(org.toUpperCase());
-                } else if (info.capitalizeFirst) {
+                } else if (info.caseOption === 'capitalize') {
                     pieces.add(org.charAt(0).toUpperCase() + org.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(org);
                 } else {
                     // 默认添加所有格式
                     pieces.add(org.toLowerCase());
@@ -237,12 +251,14 @@ class SocialPassGen {
             const org = info.organizationEnglish.trim();
             if (org) {
                 // 根据用户选择添加不同格式
-                if (info.lowercaseAll) {
+                if (info.caseOption === 'lower') {
                     pieces.add(org.toLowerCase());
-                } else if (info.uppercaseAll) {
+                } else if (info.caseOption === 'upper') {
                     pieces.add(org.toUpperCase());
-                } else if (info.capitalizeFirst) {
+                } else if (info.caseOption === 'capitalize') {
                     pieces.add(org.charAt(0).toUpperCase() + org.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(org);
                 } else {
                     // 默认添加所有格式
                     pieces.add(org.toLowerCase());
@@ -257,12 +273,14 @@ class SocialPassGen {
             const company = info.companyChinese.trim();
             if (company) {
                 // 根据用户选择添加不同格式
-                if (info.lowercaseAll) {
+                if (info.caseOption === 'lower') {
                     pieces.add(company.toLowerCase());
-                } else if (info.uppercaseAll) {
+                } else if (info.caseOption === 'upper') {
                     pieces.add(company.toUpperCase());
-                } else if (info.capitalizeFirst) {
+                } else if (info.caseOption === 'capitalize') {
                     pieces.add(company.charAt(0).toUpperCase() + company.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(company);
                 } else {
                     // 默认添加所有格式
                     pieces.add(company.toLowerCase());
@@ -277,12 +295,14 @@ class SocialPassGen {
             const company = info.companyEnglish.trim();
             if (company) {
                 // 根据用户选择添加不同格式
-                if (info.lowercaseAll) {
+                if (info.caseOption === 'lower') {
                     pieces.add(company.toLowerCase());
-                } else if (info.uppercaseAll) {
+                } else if (info.caseOption === 'upper') {
                     pieces.add(company.toUpperCase());
-                } else if (info.capitalizeFirst) {
+                } else if (info.caseOption === 'capitalize') {
                     pieces.add(company.charAt(0).toUpperCase() + company.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(company);
                 } else {
                     // 默认添加所有格式
                     pieces.add(company.toLowerCase());
@@ -409,6 +429,8 @@ class SocialPassGen {
                     pieces.add(name.toUpperCase());
                 } else if (info.caseOption === 'capitalize') {
                     pieces.add(name.charAt(0).toUpperCase() + name.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(name);
                 } else {
                     // 默认添加所有格式
                     pieces.add(name.toLowerCase());
@@ -425,12 +447,14 @@ class SocialPassGen {
                 const trimmed = name.trim();
                 if (trimmed) {
                     // 根据用户选择添加不同格式
-                    if (info.lowercaseAll) {
+                    if (info.caseOption === 'lower') {
                         pieces.add(trimmed.toLowerCase());
-                    } else if (info.uppercaseAll) {
+                    } else if (info.caseOption === 'upper') {
                         pieces.add(trimmed.toUpperCase());
-                    } else if (info.capitalizeFirst) {
+                    } else if (info.caseOption === 'capitalize') {
                         pieces.add(trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase());
+                    } else if (info.caseOption === 'original') {
+                        pieces.add(trimmed);
                     } else {
                         // 默认添加所有格式
                         pieces.add(trimmed.toLowerCase());
@@ -448,18 +472,22 @@ class SocialPassGen {
                 const dotted = trimmedNames.join('.');
                 
                 // 根据用户选择添加不同格式
-                if (info.lowercaseAll) {
+                if (info.caseOption === 'lower') {
                     pieces.add(combined.toLowerCase());
                     pieces.add(underscored.toLowerCase());
                     pieces.add(dotted.toLowerCase());
-                } else if (info.uppercaseAll) {
+                } else if (info.caseOption === 'upper') {
                     pieces.add(combined.toUpperCase());
                     pieces.add(underscored.toUpperCase());
                     pieces.add(dotted.toUpperCase());
-                } else if (info.capitalizeFirst) {
+                } else if (info.caseOption === 'capitalize') {
                     pieces.add(combined.charAt(0).toUpperCase() + combined.slice(1).toLowerCase());
                     pieces.add(underscored.charAt(0).toUpperCase() + underscored.slice(1).toLowerCase());
                     pieces.add(dotted.charAt(0).toUpperCase() + dotted.slice(1).toLowerCase());
+                } else if (info.caseOption === 'original') {
+                    pieces.add(combined);
+                    pieces.add(underscored);
+                    pieces.add(dotted);
                 } else {
                     // 默认添加所有格式
                     pieces.add(combined.toLowerCase());
@@ -516,12 +544,14 @@ class SocialPassGen {
                 const trimmed = part.trim();
                 if (trimmed) {
                     // 根据用户选择添加不同格式
-                    if (info.lowercaseAll) {
+                    if (info.caseOption === 'lower') {
                         pieces.add(trimmed.toLowerCase());
-                    } else if (info.uppercaseAll) {
+                    } else if (info.caseOption === 'upper') {
                         pieces.add(trimmed.toUpperCase());
-                    } else if (info.capitalizeFirst) {
+                    } else if (info.caseOption === 'capitalize') {
                         pieces.add(trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase());
+                    } else if (info.caseOption === 'original') {
+                        pieces.add(trimmed);
                     } else {
                         // 默认添加所有格式
                         pieces.add(trimmed.toLowerCase());
